@@ -3,7 +3,7 @@ pragma solidity ^0.8.18 <0.9.0;
 
 error AmountToSmall();
 
-contract Modifier {
+contract Payable {
  
     // STATE VARIABLES
 
