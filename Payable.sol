@@ -29,8 +29,9 @@ contract Modifier {
         balance[msg.sender] = msg.value;
     }
     
-    function withdraw() public onlyOwner {
-        payable(msg.sender).transfer(address(this).balance);
+    function withdraw() public payable onlyOwner {
+        (bool success, ) = payable(msg.sender).call{value: address(this).balance}("");
+        require(success, "Failed to send Ether");
     }
 
     function addFund() public payable onlyWithBalance minimumFee {
