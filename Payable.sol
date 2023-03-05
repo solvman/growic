@@ -41,6 +41,12 @@ contract Modifier {
     function getTotalBalance() public view returns (uint256) {
         return address(this).balance;
     }
+    
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {}
+
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {}
 
     // MODIFIERS
 
